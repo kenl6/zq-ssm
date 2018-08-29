@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	
+	<!-- <bean id="roleService" class="cn.dw.zq.services.impl.RoleServicesImpl">
+		<property name="roleDao" ref="roleDao"></property>
+	</bean>
+	
+	<bean id="roleDao" class="cn.dw.zq.dao.impl.RoleDaoImpl"></bean>
+	 -->
+	<context:component-scan base-package="cn.dw.zq"></context:component-scan>
+	
+	<!-- springmvc的配置  /WEB-INF/jsp/role/add.jsp  -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+	
+	
+	
+	
+	<!-- 开启注解驱动 -->
+	<!-- <mvc:annotation-driven></mvc:annotation-driven> -->
+	<mvc:annotation-driven>
+		<mvc:message-converters register-defaults="true">
+		<!-- 注册字符串转换器，把编码设置为utf-8 -->
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<property name="supportedMediaTypes">
+					<list>
+						<value>application/json;charset=utf-8</value>
+						<value>text/html;charset=utf-8</value>
+						<value>application/x-www-form-urlencoded</value>
+					</list>
+				</property>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</beans>
