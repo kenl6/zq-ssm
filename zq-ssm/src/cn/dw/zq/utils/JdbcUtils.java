@@ -106,11 +106,19 @@ public class JdbcUtils {
 	public static void  execute(String sql) {
 		Connection conn = null;
 		Statement statement = null;
+		
 		try {
+			conn.setAutoCommit(false);/*设置手动提交事务*/
 			conn = getConnection();
 			statement = conn.createStatement();
 			statement.execute(sql);
+			conn.commit();  /*手动提交*/
 		} catch (SQLException e) {
+			try {
+				conn.rollback(); /*回滚*/
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
 			e.printStackTrace();
 		}finally {
 			try {

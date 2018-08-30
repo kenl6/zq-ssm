@@ -29,6 +29,12 @@
   </servlet-mapping>
   
   
+  <!-- tomcat 有一个默认的servlet处理器，名字：default -->
+  <servlet-mapping>
+  	<servlet-name>default</servlet-name>
+  	<url-pattern>/static/*</url-pattern>
+  </servlet-mapping>
+  
   
   
   

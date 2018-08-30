@@ -4,15 +4,17 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import cn.dw.zq.dao.RoleDao;
+import cn.dw.zq.mapper.RoleMapper;
 import cn.dw.zq.model.Role;
 import cn.dw.zq.services.RoleServices;
 
 @Service
 public class RoleServicesImpl implements RoleServices {
 
-	@Autowired
+	/*@Autowired
 	private RoleDao roleDao;
 	
 	public RoleDao getRoleDao() {
@@ -21,28 +23,35 @@ public class RoleServicesImpl implements RoleServices {
 
 	public void setRoleDao(RoleDao roleDao) {
 		this.roleDao = roleDao;
-	}
+	}*/
+	
+	@Autowired
+	private RoleMapper roleMapper;
+	
+	
 
 	@Override
+	@Transactional  /*开启事务*/ 
 	public void add(Role role) {
-		roleDao.add(role);
-		
+		roleMapper.add(role);
+//		int i = 1/0;
+//		roleMapper.add(role);	
 	}
 
 	@Override
 	public void update(Role role) {
-		roleDao.update(role);
+		roleMapper.update(role);
 
 	}
 
 	@Override
 	public void delete(Role role) {
-		roleDao.delete(role);
+		roleMapper.delete(role);
 	}
 
 	@Override
 	public List<Role> query(Role role) {
-		return roleDao.query(role);
+		return roleMapper.query(role);
 	}
 
 }
