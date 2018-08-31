@@ -14,27 +14,27 @@
   <servlet>
   	<servlet-name>springmvc</servlet-name>
   	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-  	<init-param>
+  	<!-- <init-param>
   		<param-name>contextConfigLocation</param-name>
   		<param-value>classpath:application.xml</param-value>
   	</init-param>
-  	
+  	 -->
   	<!-- 配置servlet在加载的时候直接初始化 -->
   	<load-on-startup>1</load-on-startup>
   </servlet>
   
   <servlet-mapping>
   	<servlet-name>springmvc</servlet-name>
-  	<url-pattern>/</url-pattern>
+  	<url-pattern>/*</url-pattern>
   </servlet-mapping>
   
   
   <!-- tomcat 有一个默认的servlet处理器，名字：default -->
-  <servlet-mapping>
+  <!-- <servlet-mapping>
   	<servlet-name>default</servlet-name>
   	<url-pattern>/static/*</url-pattern>
   </servlet-mapping>
-  
+   -->
   
   
   

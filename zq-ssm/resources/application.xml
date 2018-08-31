@@ -17,7 +17,7 @@
 	
 	<bean id="roleDao" class="cn.dw.zq.dao.impl.RoleDaoImpl"></bean>
 	 -->
-	<context:component-scan base-package="cn.dw.zq"></context:component-scan>
+	<context:component-scan base-package="cn.dw.zq.controller"></context:component-scan>
 	
 	<!-- springmvc的配置  /WEB-INF/jsp/role/add.jsp  -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -33,20 +33,20 @@
 		<!-- url后面配置多个参数需要把& 变成&amp;  比如：&amp;userSSl=true -->
 		<property name="url" value="jdbc:mysql://localhost:3306/zq-ssm?characterEncoding=utf8"></property>	
 	 	<property name="username" value="root"></property>
-	 	<property name="password" value="123456"></property>
+	 	<property name="password" value="123"></property>
 	</bean>
 	
 	<!-- mybatis  sqlsessionfactory-->
 	<bean id="sqlSessionFacotry" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
-		<property name="mapperLocations" value="classpath:cn/dw/zq/mapper/impl/*.xml"></property>
+		<property name="mapperLocations" value="classpath:cn/dw/zq/mapper/*.xml"></property>
 	</bean>
 	
 	
 	<!-- 整合spirng mybatis ，把接口跟xml里面配置sql语句结合起来 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFacotry"></property>
-		<property name="basePackage" value="cn.dw.zq.mapper"></property>
+		<property name="basePackage" value="cn.dw.zq.mapper.impl"></property>
 	</bean>
 	
 	

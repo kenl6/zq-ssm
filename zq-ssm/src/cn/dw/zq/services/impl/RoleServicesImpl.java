@@ -14,18 +14,7 @@ import cn.dw.zq.services.RoleServices;
 @Service
 public class RoleServicesImpl implements RoleServices {
 
-	/*@Autowired
-	private RoleDao roleDao;
 	
-	public RoleDao getRoleDao() {
-		return roleDao;
-	}
-
-	public void setRoleDao(RoleDao roleDao) {
-		this.roleDao = roleDao;
-	}*/
-	
-	@Autowired
 	private RoleMapper roleMapper;
 	
 	
@@ -51,7 +40,8 @@ public class RoleServicesImpl implements RoleServices {
 
 	@Override
 	public List<Role> query(Role role) {
-		return roleMapper.query(role);
+		roleMapper.query(role);
+		return  null;
 	}
 
 }

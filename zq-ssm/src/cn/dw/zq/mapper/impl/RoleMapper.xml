@@ -47,7 +47,7 @@
 	</delete>
 	
 	
-	<select id="query" parameterType="cn.dw.zq.model.Role"  resultType="cn.dw.zq.model.Role">
+	<select id="query2" parameterType="cn.dw.zq.model.Role"  resultType="cn.dw.zq.model.Role">
 	
 		select * from role
 		<where>

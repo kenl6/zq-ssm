@@ -22,19 +22,14 @@ import com.alibaba.fastjson.JSONObject;
 import cn.dw.zq.model.Role;
 import cn.dw.zq.services.RoleServices;
 
-@Controller  //@Service @Repository @Component
-//@RestController
+
 @RequestMapping("/role")
 public class RoleController {
 	
 	Logger log = LoggerFactory.getLogger(RoleController.class);
 	
-//	@Qualifier("rolerService1") 配合Autowired注解使用
-//	@Resource(name="rolerService1")
-	@Autowired 
 	private RoleServices roleService;
 	
-	@Autowired
 	private HttpServletRequest req;
 	
 	
@@ -60,7 +55,6 @@ public class RoleController {
 	} 
 	
 	@RequestMapping("/update")
-	@ResponseBody  
 	public String update(Role role) {
 		roleService.update(role);
 		JSONObject json = new JSONObject();
@@ -80,7 +74,6 @@ public class RoleController {
 	} 
 	
 	@RequestMapping("/query")
-	@ResponseBody  
 	public String query(Role role) {
 //		int i = 1/0;
 		if(log.isDebugEnabled()) {

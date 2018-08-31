@@ -53,7 +53,7 @@
 	<script type="text/javascript" src="<%=path %>/static/My97DatePicker/WdatePicker.js"></script>
 	<script type="text/javascript">
 		/*选择器： #id , .class  html元素 */
-		$("#btn-save").on("click",function(){
+		$("#btn-save2").on("click",function(){
 			$.ajax({
 				url:"<%=path%>/role/add",
 				data:{
@@ -75,7 +75,7 @@
 		})
 		
 		/* 查询功能事件处理 */
-		$("#btn-query").on("click",function(){
+		$("#btn-query2").on("click",function(){
 			query();
 		})
 		
@@ -116,7 +116,7 @@
 				url:"<%=path%>/role/delete",
 				type:"post",
 				data:{
-					id:$(this).val()
+					id:""
 				},
 				success:function(data){
 					if(data.result =="success"){
