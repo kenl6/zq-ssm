@@ -6,6 +6,7 @@
 		<!-- insert into user(name,remarks) values('张三','备注') -->
 		insert into user
 		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<!-- 只要字符串格式的数据才需要判断是否为空 -->
 			<if test="name != null and name !='' ">
 				name,
 			</if>
