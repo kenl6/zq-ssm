@@ -14,7 +14,7 @@ public class User {
 	
 	private Integer age;
 	
-	@DateTimeFormat(pattern="yyy-MM-dd HH:mm:ss")
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	private Date registerTime;
 	
 	private String password;
